@@ -1,0 +1,329 @@
+.main-container {
+  width: 75vw;
+  margin: 0 auto;
+
+  .dash-title {
+    color: #f5f5f5;
+    margin-top: 7rem;
+    font-family: 'Rubik', sans-serif;
+    margin-bottom: 1rem;
+  }
+
+  .search-bar {
+    height: 60px;
+    width: 100%;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .search-input {
+      position: relative !important;
+      min-width: 350px;
+      height: 60px;
+      border-radius: 20px 0 0 20px;
+
+      nb-icon {
+        position: relative;
+        color: #666 !important;
+        left: 20px;
+      }
+
+      input {
+        min-width: 350px;
+        padding-left: 55px;
+        height: 60px;
+        border-radius: 20px 0 0 20px;
+        background-color: #272121;
+        font-family: 'Rubik', sans-serif;
+        font-weight: 300;
+      }
+    }
+  }
+
+  ::placeholder {
+    color: #4c4848;
+    font-family: 'Rubik', sans-serif;
+
+  }
+
+  .jobs-container {
+    min-height: 500px;
+    border-radius: 20px;
+    width: 100%;
+    margin-top: 2em;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    grid-gap: 3rem;
+    padding-bottom: 5rem;
+
+    .job-card {
+      position: relative;
+      background: #363333;
+      padding: 1em 2em;
+      min-height: 250px;
+      border-radius: 20px;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid transparent;
+      justify-content: space-between;
+      transition: .2s ease;
+      box-shadow: 0 3px 25px rgba(0,0,0,0.15);
+
+      &:hover {
+        border: 1px solid #999;
+        transform: scale(1.02);
+        transition: .2s ease;
+      }
+
+      .top-details {
+        position: relative;
+        z-index: 4;
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+
+        .details-text {
+          display: flex;
+
+          p {
+            position: relative;
+            font-family: 'Rubik', sans-serif !important;
+            margin-right: 2em;
+            color: #6d6d6d;
+
+            &:nth-child(1) {
+
+              &:after {
+                content: '';
+                position: absolute;
+                border-radius: 50%;
+                width: 5px;
+                height: 5px;
+                background-color: #6d6d6d;
+                right: -1em;
+                top: 50%;
+                transform: translateY(-50%);
+              }
+            }
+          }
+        }
+      }
+
+      .bottom-details {
+        position: relative;
+        z-index: 4;
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+
+        .job-location {
+          font-size: 14px;
+          font-family: 'Rubik', sans-serif !important;
+          font-weight: 600 !important;
+          color: #e16428;
+        }
+      }
+
+      .job-main {
+        .job-title {
+          color: #f5f5f5;
+          position: relative;
+          z-index: 4;
+          font-size: 16px;
+          line-height: 20px;
+          font-family: 'Rubik', sans-serif !important;
+        }
+
+        .company-name {
+          position: relative;
+          color: #6d6d6d;
+          z-index: 4;
+          font-size: 16px;
+          font-family: 'Rubik', sans-serif !important;
+        }
+      }
+
+
+
+      .company-logo {
+        opacity: 0.1;
+        position: absolute;
+        right: 1em;
+        top: 50%;
+        transform: translateY(-50%);
+        background-size: contain;
+        background-position: center center;
+        background-repeat: no-repeat;
+        height: 80%;
+        width: 200px;
+      }
+
+      .company-gradient {
+        position: absolute;
+        border-radius: 20px;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 3;
+        height: 100%;
+        background: linear-gradient(to left, #363333, transparent);
+      }
+    }
+  }
+}
+
+.pin-icon {
+  position: absolute;
+  top: 50%;
+  left: 1em;
+  color: #666;
+  z-index: 999;
+  transform: translateY(-50%);
+}
+
+.next-prev {
+  position: fixed;
+  bottom: 0;
+  z-index: 5;
+  width: 75vw;
+  border-top-right-radius: 50px;
+  border-top-left-radius: 50px;
+  height: 80px;
+  box-shadow: 0 -5px 50px rgba(51, 51, 51, 0.75);
+
+  .next {
+    border-top-right-radius: 50px;
+    border-left: 1px solid #e16428 !important;
+  }
+
+  .prev {
+    border-right: 1px solid #e16428 !important;
+    border-top-left-radius: 50px;
+  }
+
+  .job-button {
+    background-color: #272121;
+    border: none;
+    color: #e16428;
+    width: 50%;
+    height: 100%;
+    font-size: 1.5rem;
+    font-weight: 700;
+    font-family: 'Rubik', sans-serif;
+    transition: .3s ease-out;
+
+    &:hover {
+      background-color: #e16428;
+      color: #f5f5f5;
+      cursor: pointer;
+      transition: .2s ease;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &:hover:disabled {
+      background-color: #272121;
+      cursor: not-allowed;
+    }
+
+    &:disabled {
+      color: #363333;
+    }
+  }
+}
+
+.page-number {
+  user-select: none;
+  border: 3px solid #272121;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 500;
+  position: absolute;
+  z-index: 7;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #e16428;
+  padding: 5px 25px;
+  border-radius: 50px;
+  color: #f5f5f5;
+}
+
+.search-form {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .search-params {
+    display: flex;
+    align-items: center;
+
+    .checkbox-container {
+      border-top-right-radius: 20px;
+      border-bottom-right-radius: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: solid #666;
+      border-width: 1px 1px 1px 0;
+      height: 60px;
+
+      .fulltime-checkbox {
+        margin: 0 2em;
+      }
+    }
+
+  }
+}
+
+.no-jobs {
+  opacity: 0.4;
+  margin-top: 2em;
+
+}
+
+.search-button {
+  margin: 0 1em;
+}
+
+.saved-jobs-link {
+  padding: 10px 15px;
+  font-family: 'Rubik', sans-serif;
+  display: flex;
+  align-items: center;
+  color: #f5f5f5;
+  transition: .2s ease;
+
+  &:hover {
+    cursor: pointer;
+    color: #e16428;
+    border-radius: 10px;
+    transition: .2s ease;
+    background-color: #363333;
+  }
+
+  nb-icon {
+    margin-right: .3em;
+  }
+}
+
+.ng-autocomplete {
+  position: relative;
+  max-width: 250px !important;
+  height: 60px;
+
+  .autocomplete {
+    height: 60px;
+  }
+}
+
+.back-to-top {
+  position: fixed;
+  right: 2em;
+  bottom: 2em;
+}

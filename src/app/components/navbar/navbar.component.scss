@@ -1,0 +1,119 @@
+.navbar {
+  height: 80px;
+  width: 90vw;
+  position: fixed;
+  z-index: 99999;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #363333;
+  box-shadow: 0 0 50px rgba(51,51,51,0.75);
+  border-radius: 0 0 150px 150px;
+
+
+  .navbar-container {
+    padding: 0 7.5vw;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .navbar-brand {
+      color: #e16428;
+      font-family: 'Modak', sans-serif;
+      font-weight: lighter;
+      margin: 0;
+    }
+
+    .user-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .arrow-icon {
+        margin-left: .3em;
+        transition: .15s ease-out;
+      }
+
+      .app-user {
+        font-family: 'Rubik', sans-serif !important;
+        border-radius: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+      }
+
+      &:hover {
+        cursor: pointer;
+
+        .arrow-icon {
+
+          margin-top: .2em;
+          transition: .15s ease-out;
+        }
+      }
+    }
+  }
+
+}
+
+.guest-menu-popover {
+  padding: .5em 0;
+  border-radius: 15px;
+  min-width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #272121;
+
+  .user-email {
+    opacity: 0.5;
+    font-weight: 500;
+    font-size: .8rem;
+    font-family: 'Rubik', sans-serif;
+  }
+
+  .main-links {
+    width: 100%;
+
+    p {
+      margin: 0;
+      font-family: 'Rubik', sans-serif !important;
+      width: 100%;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  .log-out-button {
+    height: 40px;
+    width: 100%;
+    margin: 0;
+    font-family: 'Rubik', sans-serif !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:hover {
+      background-color: #272121;
+      cursor: pointer;
+
+      nb-icon {
+        margin-right: .2em;
+        transition: .2s ease;
+      }
+    }
+
+    nb-icon {
+      margin-right: .5em;
+      transition: .2s ease;
+    }
+  }
+
+
+
+}

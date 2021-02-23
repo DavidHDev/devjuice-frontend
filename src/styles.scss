@@ -1,4 +1,7 @@
 @import 'themes';
+@import url('https://fonts.googleapis.com/css2?family=Modak&family=Rubik:wght@300;400;500;600;700&display=swap');
+@import "app/app.component";
+@import "app/components/loader-bar/loader-bar.component";
 
 @import '~@nebular/theme/styles/globals';
 
@@ -6,3 +9,168 @@
   @include nb-theme-global();
 };
 /* You can add global styles to this file, and also import other style files */
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  font-family: 'Rubik', sans-serif;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #363333;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #e16428;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #e16428;
+}
+
+button {
+  font-family: 'Rubik', sans-serif !important;
+  text-transform: capitalize !important;
+}
+
+input {
+  font-family: 'Rubik', sans-serif !important;
+  font-weight: 500 !important;
+}
+
+nb-user .initials {
+  font-family: 'Rubik', sans-serif !important;
+}
+
+nb-user .user-name {
+  font-family: 'Rubik', sans-serif !important;
+}
+
+nb-popover {
+  border-radius: 15px !important;
+  box-shadow: 0 0 30px #5b3826 !important;
+}
+
+button:focus {
+  box-shadow: 0 0 0 5px #5b3826 !important;
+}
+
+nb-checkbox .native-input:focus:checked + .custom-checkbox {
+  box-shadow: 0 0 0 5px #5b3826 !important;
+}
+
+nb-checkbox .native-input:focus:not(:checked) + .custom-checkbox {
+  box-shadow: 0 0 0 5px #5b3826 !important;
+}
+
+nav.fixed {
+  background-color: #272121 !important;
+}
+
+div.autocomplete-container {
+  height: 60px !important;
+  box-shadow: none !important;
+  max-width: 250px;
+
+  .input-container {
+    max-width: 250px;
+    box-shadow: none !important;
+    height: 60px !important;
+
+
+    input {
+      max-width: 250px;
+      color: #f5f5f5 !important;
+      padding-left: 3em !important;
+      border: 1px solid #666;
+      border-left: none;
+      height: 60px !important;
+      background-color: #272121;
+      box-shadow: none !important;
+      font-family: 'Rubik', sans-serif !important;
+
+      ::placeholder {
+        color: #4c4848 !important;
+      }
+    }
+  }
+}
+
+::placeholder {
+  font-family: 'Rubik', sans-serif !important;
+  font-weight: 300 !important;
+  color: #666 !important;
+}
+
+nb-checkbox.fulltime-checkbox.status-basic.nb-transition {
+  cursor: pointer !important;
+
+  label.label {
+    cursor: pointer !important;
+  }
+}
+
+.autocomplete-container .input-container .x i {
+  color: #f5f5f5 !important;
+}
+
+.autocomplete-container .not-found {
+  display: none !important;
+}
+
+.not-found div {
+  display: none !important;
+}
+
+nb-toast.status-danger {
+  background-color: #e13e28;
+  border-color: #e13e28;
+
+  nb-icon {
+    color: #e13e28 !important;
+  }
+
+  &:hover {
+    background-color: #e13e28;
+    border-color: #e13e28;
+  }
+}
+
+nb-checkbox.status-basic .custom-checkbox {
+  border-color: #363333 !important;
+
+  &:hover {
+    background-color: #4f240e !important;
+  }
+}
+
+
+
+.suggestions-container.is-visible {
+  border-radius: 0 0 20px 20px !important;
+  background: #272121 !important;
+  box-shadow: none !important;
+
+  li.item {
+    border-radius: 0 0 20px 20px;
+
+    a {
+      color: #f5f5f5 !important;
+      font-family: 'Rubik', sans-serif !important;
+    }
+  }
+}
+
+[nbInput].status-basic {
+  border-color: #666 !important;
+}

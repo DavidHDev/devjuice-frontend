@@ -1,6 +1,74 @@
-<div *ngFor="let user of users">
-  {{user.userName}}
-  {{user.userDetails?.jobTitle}}
-  {{user.email}}
-  {{user._id}}
-</div>
+<app-loader-bar *ngIf="loading" [visible]="loading" class="loader-bar"></app-loader-bar>
+<app-navbar></app-navbar>
+<nb-layout>
+  <nb-layout-column>
+    <div class="main-container">
+      <h2 class="dash-title">Job Dashboard</h2>
+      <div class="search-bar">
+        <form (ngSubmit)="handleSearch(searchForm.value)" [formGroup]="searchForm" class="search-form">
+          <div class="search-params">
+            <nb-form-field class="search-input">
+              <nb-icon nbPrefix icon="search-outline" pack="eva"></nb-icon>
+              <input formControlName="search" placeholder="Filter by title, companies, expertise..." type="text" nbInput>
+            </nb-form-field>
+
+            <div class="ng-autocomplete">
+              <ng-autocomplete
+                formControlName="location"
+                class="autocomplete"
+                placeholder="Filter by location...">
+              </ng-autocomplete>
+              <nb-icon class="pin-icon" icon="pin-outline"></nb-icon>
+            </div>
+            <div class="checkbox-container">
+              <button class="search-button" nbButton status="primary" shape="semi-round" type="submit">Search</button>
+            </div>
+          </div>
+        </form>
+
+        <p class="saved-jobs-link"><nb-icon icon="bookmark-outline"></nb-icon>Saved Jobs</p>
+      </div>
+
+      <div class="no-jobs" *ngIf="jobs.length < 1">
+        <h2>Sorry, couldn't find anything..</h2>
+      </div>
+      <div class="jobs-container">
+        <div *ngFor="let job of jobs" class="job-card">
+          <div class="company-gradient"></div>
+          <div class="company-logo" [style.background-image]="'url(' + job.company_logo + ')'">
+          </div>
+
+          <div class="top-details">
+            <div class="details-text">
+              <p>{{job.type}}</p>
+              <p>{{job.created_at | date: 'EEE d MMM'}}</p>
+            </div>
+
+            <button shape="semi-round" nbButton ghost status="primary"><nb-icon icon="bookmark-outline"></nb-icon></button>
+          </div>
+
+          <div class="job-main">
+            <h2 class="job-title">{{job.title}}</h2>
+            <h2 class="company-name">{{job.company}}</h2>
+          </div>
+
+          <div class="bottom-details">
+            <p class="job-location">{{job.location}}</p>
+            <button shape="semi-round" size="small" ghost nbButton status="primary"><nb-icon icon="eye-outline"></nb-icon>See Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button (click)="backToTop()" class="back-to-top" nbButton status="primary"><nb-icon icon="arrow-upward-outline"></nb-icon></button>
+  </nb-layout-column>
+  <nb-layout-footer [fixed]="true">
+    <div class="next-prev">
+      <button class="job-button prev" [disabled]="page === 1 || loading" (click)="getPrevPage()"><nb-icon icon="arrowhead-left-outline"></nb-icon> Previous Page</button>
+      <p class="page-number">Page {{page}}</p>
+      <button class="job-button next" [disabled]="lastPageReached || loading" (click)="getNextPage()">Next Page <nb-icon icon="arrowhead-right-outline"></nb-icon></button>
+    </div>
+  </nb-layout-footer>
+</nb-layout>
+
+
+

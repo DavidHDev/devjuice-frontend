@@ -1,0 +1,60 @@
+<nb-layout>
+  <nb-layout-column>
+    <div class="auth-header">
+      <p class="app-auth-title">devJuice</p>
+      <div>
+        <button [routerLink]="['/home']" class="auth-main-button" size="medium" nbButton shape="semi-round" ghost status="primary">Continue As Guest</button>
+        <button (click)="authState = 'register'" class="auth-main-button" size="medium" nbButton shape="semi-round" status="primary">Create Account</button>
+      </div>
+    </div>
+    <div class="auth-container">
+      <img class="illustration" src="/assets/jumpman.svg" alt="jumping man">
+      <div class="header">
+        <h1 class="main-copy">Don't miss out on opportunities,</h1>
+        <h2 class="main-copy">Here's the juice.</h2>
+      </div>
+      <div class="auth-background"></div>
+      <div class="auth-gradient"></div>
+      <form class="auth-form" *ngIf="authState === 'register'" [formGroup]="exForm" (ngSubmit)="onSubmit(exForm.value)">
+        <label class="form-label">Username</label>
+        <input class="auth-input" type="text" nbInput fullWidth shape="semi-round" formControlName="userName">
+        <label class="form-label">Email</label>
+        <input class="auth-input" type="text" nbInput fullWidth shape="semi-round" formControlName="email">
+        <label class="form-label">Password</label>
+        <nb-form-field class="auth-input">
+          <input shape="semi-round" fullWidth [type]="getInputType()" nbInput formControlName="passwordHash">
+          <button shape="semi-round" type="button" nbSuffix nbButton ghost (click)="toggleShowPassword()">
+            <nb-icon [icon]="showPassword ? 'eye-outline' : 'eye-off-2-outline'"
+                     pack="eva"
+                     [attr.aria-label]="showPassword ? 'hide password' : 'show password'">
+            </nb-icon>
+          </button>
+        </nb-form-field>
+        <button class="auth-main-button" nbButton shape="semi-round" fullWidth status="primary">Create Account</button>
+        <p class="account-status-change">Already have an account? <span (click)="changeAuthView()" class="account-link">Log In</span></p>
+      </form>
+
+      <form class="auth-form"
+            *ngIf="authState === 'login'"
+            [formGroup]="loginForm"
+            (ngSubmit)="onLoginSubmit(loginForm.value)"
+      >
+        <label class="form-label">Email</label>
+        <input class="auth-input" type="text" nbInput fullWidth shape="semi-round" formControlName="email">
+        <label class="form-label">Password</label>
+        <nb-form-field class="auth-input">
+          <input shape="semi-round" fullWidth [type]="getInputType()" nbInput formControlName="password">
+          <button shape="semi-round" type="button" nbSuffix nbButton ghost (click)="toggleShowPassword()">
+            <nb-icon [icon]="showPassword ? 'eye-outline' : 'eye-off-2-outline'"
+                     pack="eva"
+                     [attr.aria-label]="showPassword ? 'hide password' : 'show password'">
+            </nb-icon>
+          </button>
+        </nb-form-field>
+        <button class="auth-main-button" nbButton shape="semi-round" fullWidth status="primary">Log In</button>
+        <p class="account-status-change">Don't have an account? <span class="account-link" (click)="changeAuthView()">Create One</span></p>
+      </form>
+    </div>
+
+  </nb-layout-column>
+</nb-layout>

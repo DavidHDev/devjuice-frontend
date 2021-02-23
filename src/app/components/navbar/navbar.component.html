@@ -1,0 +1,27 @@
+<div class="navbar">
+  <div class="navbar-container">
+    <h2 class="navbar-brand">DevJuice</h2>
+    <div class="user-container" [nbPopover]="user ? loggedUserRef : guestMenuRef" nbPopoverPlacement="bottom">
+      <nb-user class="app-user" *ngIf="user" shape="semi-round" [name]="user?.username" title="Developer"></nb-user>
+      <nb-user class="app-user" *ngIf="!user" shape="semi-round" name="Guest User"></nb-user>
+      <ng-template #guestMenuRef>
+        <div class="guest-menu-popover">
+          <div class="main-links">
+            <p class="user-email">Guest Access</p>
+          </div>
+          <p class="log-out-button" [routerLink]="['/connect']"><nb-icon icon="log-out-outline"></nb-icon>Connect</p>
+        </div>
+      </ng-template>
+      <ng-template #loggedUserRef>
+        <div class="guest-menu-popover">
+          <div class="main-links">
+            <p class="user-email">{{user?.email}}</p>
+          </div>
+          <p class="log-out-button" (click)="logOut()"><nb-icon icon="log-out-outline"></nb-icon>Log Out</p>
+        </div>
+      </ng-template>
+      <nb-icon class="arrow-icon" icon="arrow-ios-downward-outline"></nb-icon>
+    </div>
+
+  </div>
+</div>

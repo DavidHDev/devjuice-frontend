@@ -1,15 +1,1 @@
-<form [formGroup]="exForm" (ngSubmit)="onSubmit(exForm.value)">
-  <input formControlName="userName">
-  <input formControlName="email">
-  <input formControlName="passwordHash">
-  <button type="submit">Send</button>
-</form>
-
-<form [formGroup]="loginForm" (ngSubmit)="onLoginSubmit(loginForm.value)">
-  <input formControlName="email">
-  <input formControlName="password">
-  <button type="submit">Send</button>
-</form>
-
-
-<router-outlet></router-outlet>
+  <router-outlet></router-outlet>
